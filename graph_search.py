@@ -263,7 +263,7 @@ class PriorityQ:
         return str(self.l)
 
 
-def dfs(init_state, f, is_goal, actions):
+def dfs(init_pos, trans, is_goal, actions):
     """
     Perform depth first search on a grid map.
 
