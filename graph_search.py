@@ -262,6 +262,13 @@ class PriorityQ:
 
         return str(self.l)
 
+    def get_plan(self,s):
+        """
+        Return the plan to get back
+        """
+
+        return plan
+
 
 def dfs(init_pos, trans, is_goal, actions):
     """
@@ -278,7 +285,7 @@ def dfs(init_pos, trans, is_goal, actions):
     """
     front = []  # Frontier stack
     visited = {}  # visited stack
-    front.push()
+    front.push(init_pos)
     while not front.is_empty():
         s = front.pop()
 
@@ -286,9 +293,8 @@ def dfs(init_pos, trans, is_goal, actions):
             return get_plan(s)
         if s not in visited:
             visited.add(s)
-
-    for a in actions:
-        front.push(t(s,a))
+        for a in actions:
+            front.push(trans(s, a))
 
     return None
 
